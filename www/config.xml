@@ -18,6 +18,7 @@
 	<feature name="http://api.phonegap.com/1.0/notification"/>
     
     <gap:plugin name="com.phonegap.plugins.barcodescanner" />
+    <content src="http://174.121.174.238/business_signin.a5w" />
     
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
