@@ -37,22 +37,38 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
         
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        scanner.scan(
-        function (result) {
-        alert("We got a barcode\n" +
-            "Result: " + result.text + "\n" +
-            "Format: " + result.format + "\n" +
-            "Cancelled: " + result.cancelled);
-            },
-            function (error) {
-            alert("Scanning failed: " + error);
-            }
-        );
+        var scanAndGo = function() {
+    			try {
+				
         
+                    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+            
+                    scanner.scan(
+                    function (result) {
+                    alert("We got a barcode\n" +
+                        "Result: " + result.text + "\n" +
+                        "Format: " + result.format + "\n" +
+                        "Cancelled: " + result.cancelled);
+                        },
+                        function (error) {
+                        alert("Scanning failed: " + error);
+                        }
+                    );
+    			} catch(e) {
+    				navigator.notification.alert('Scanner error: '+e);
+				}
+			};
         
         app.initialize();
         </script>
+        
+         <div class="app">
+            <h1>Loyallee<br />Scan and Load</h1>
+            <br /><br /><br />
+    		<div id="buttons">								
+					<button class="bluBtn" style="height:50px" onclick = "scanAndGo()">Scan QR Code and Go</button>
+            </div>
+			
+        </div>
     </body>
 </html>
