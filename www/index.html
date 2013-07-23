@@ -17,57 +17,48 @@ KIND, either express or implied. See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
+
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Loyallee Business</title>
         
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="barcodescanner.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
+       
         
-        var scanAndGo = function() {
-     try {
-
-        
-                    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-            
-                    scanner.scan(
-                    function (result) {
-                    alert("We got a barcode\n" +
-                        "Result: " + result.text + "\n" +
-                        "Format: " + result.format + "\n" +
-                        "Cancelled: " + result.cancelled);
-                        },
-                        function (error) {
-                        alert("Scanning failed: " + error);
-                        }
-                    );
-     } catch(e) {
-     navigator.notification.alert('Scanner error: '+e);
-}
-};
-        
-        app.initialize();
-        </script>
+    <title>Hello World </title>
+ 
+  <script src="phonegap.js"></script>
+ 
+                 <script type="text/javascript">
+ 
+                 document.addEventListener("deviceready", function(){
+                         //alert('cordova=' + device.cordova + ' platform=' + device.platform);
+                         var cordovaVersion = device.cordova.substr(0,5);
+                         //alert(cordovaVersion);
+                          window.location="http://www.loyallee.com/business_Checkin.a5w?__cordovaVersion="+cordovaVersion+"&__cordovaPlatform="+device.platform;
+ 
+                 },true);
+ 
+  </script>
+ 
     </head>
-    <body onLoad="window.location.href = 'http://174.121.174.238/business_checkin.a5w'">
-        
-        
-        
-        
-        
-         <div class="app">
-            <h1>Loyallee<br />Scan and Load</h1>
-            <br /><br /><br />
-     <div id="buttons">  
-<button class="bluBtn" style="height:50px" onclick = "scanAndGo()">Scan QR Code and Go</button>
-            </div>
-
+    <body>
+      <div class="app">
+            <h1>Alpha Anywhere / PhoneGap Build<br />UX Component Barcode Scanner</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+             </div>
+                          <br />
+                          <p id="deviceProperties">
+                                   Loading device properties...
+                          </p>
         </div>
+      
     </body>
 </html>
+
+
+
